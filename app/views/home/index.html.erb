@@ -1,0 +1,6 @@
+<h1>Welcome, <%= @user.first_name %>!</h1>
+
+<p>Your email: <%= @user.email %></p>
+<p>Your role: <%= @user.has_role?(:lab) ? "Lab" : "Patient" %></p>
+
+<%= link_to 'Go to Profile', profile_path %>
