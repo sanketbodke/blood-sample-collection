@@ -1,33 +1,45 @@
-<% if notice %>
-  <div class="alert alert-success">
-    <%= notice %>
+<%= stylesheet_link_tag "auth", media: "all", "data-turbo-track": "reload" %>
+<div class="form-container">
+  <div class="auth-form">
+    <h1>Register</h1>
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <div class="form-field">
+        <%= f.label :first_name %>
+        <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
+      </div>
+
+      <div class="form-field">
+        <%= f.label :last_name %>
+        <%= f.text_field :last_name, autocomplete: "last_name" %>
+      </div>
+
+      <div class="form-field">
+        <%= f.label :email %>
+        <%= f.email_field :email, autocomplete: "email" %>
+      </div>
+
+      <div class="form-field">
+        <%= f.label :password %>
+        <%= f.password_field :password, autocomplete: "new-password" %>
+      </div>
+
+      <div class="form-field">
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      </div>
+
+      <div class="form-field lab-checkbox">
+        <%= f.label :is_lab, "Are you a lab?" %>
+        <%= f.check_box :is_lab, { class: "checkbox" }, "1", "0" %>
+      </div>
+
+      <%= f.submit "Register", class: "primary-btn" %>
+    <% end %>
+
+    <a href="/users/sign_in" class="form-navigator">Already have an account ? <span>Login</span></a>
   </div>
-<% end %>
-
-<h2>Sign up</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.label :first_name %>
-  <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
-
-  <%= f.label :last_name %>
-  <%= f.text_field :last_name, autocomplete: "last_name" %>
-
-  <%= f.label :email %>
-  <%= f.email_field :email, autocomplete: "email" %>
-
-  <%= f.label :password %>
-  <%= f.password_field :password, autocomplete: "new-password" %>
-
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-
-  <div>
-    <%= f.label :is_lab, "Are you a lab?" %>
-    <%= f.check_box :is_lab, {}, "1", "0" %>
+  <div class="auth-image-container">
+    <%= image_tag "auth_img.png", alt: "Description", class: "image-class" %>
   </div>
-
-  <%= f.submit "Sign up" %>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

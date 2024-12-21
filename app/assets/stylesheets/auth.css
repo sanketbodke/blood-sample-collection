@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+.form-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.auth-form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    flex-basis: 50%;
+    padding: 0 80px;
+
+    h1{
+        font-size: var(--large-heading);
+        color: var(--primary-color);
+        margin-bottom: 30px;
+    }
+}
+
+.form-field{
+    label{
+        font-size: var(--small-text);
+    }
+    input,
+    select {
+        padding: 10px;
+        border-radius: 10px;
+        width: 100%;
+        margin: 12px 0;
+        border: 1px solid var(--black-color);
+    }
+}
+
+.lab-checkbox{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+
+    label{
+        width: 160px;
+    }
+}
+
+.form-container .auth-image-container {
+    flex-basis: 50%;
+}
+
+.form-container .auth-image-container img {
+    width: 600px;
+    height: auto;
+}
+
+.form-navigator {
+    color: var(--black-color);
+    margin-top: 20px;
+    font-size: var(--small-text);
+
+    span{
+        color: var(--primary-color);
+    }
+}

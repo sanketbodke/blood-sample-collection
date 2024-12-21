@@ -1,21 +1,89 @@
 <h1>Your Profile</h1>
 
-<% if @user.has_role?(:lab) %>
-  <p>First Name: <%= @user.first_name %></p>
-  <p>Last Name: <%= @user.last_name %></p>
-  <p>Email: <%= @user.email %></p>
-  <p>Phone: <%= @user.phone %></p>
-<% else %>
-  <p>First Name: <%= @user.first_name %></p>
-  <p>Last Name: <%= @user.last_name %></p>
-  <p>Email: <%= @user.email %></p>
-  <p>Phone: <%= @user.phone %></p>
-  <p>Date of Birth: <%= @user.dob %></p>
-  <p>Gender: <%= @user.gender %></p>
-  <p>Blood Group: <%= @user.blood_group %></p>
+<%= form_with model: @user, url: user_path(@user), method: :put do |f| %>
+  <h3>Update Your Profile</h3>
+
+  <div>
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name %>
+  </div>
+
+  <div>
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %>
+  </div>
+
+  <div>
+    <%= f.label :email %>
+    <%= f.email_field :email %>
+  </div>
+
+  <div>
+    <%= f.label :phone %>
+    <%= f.telephone_field :phone %>
+  </div>
+
+  <% if @user.has_role?(:patient) %>
+    <div>
+      <%= f.label :dob, 'Date of Birth' %>
+      <%= f.date_field :dob %>
+    </div>
+
+    <div>
+      <%= f.label :gender %>
+      <%= f.select :gender, %w[Male Female Other] %>
+    </div>
+
+    <div>
+      <%= f.label :blood_group %>
+      <%= f.select :blood_group, %w[A+ B+ O+ AB+ A- B- O- AB-] %>
+    </div>
+  <% end %>
+
+  <div>
+    <%= f.submit "Save User Details" %>
+  </div>
 <% end %>
 
-<p>Your role: <%= @user.has_role?(:lab) ? "Lab" : "Patient" %></p>
+<% if @user.has_role?(:lab) %>
+  <% if @user.lab %>
+    <%= form_with model: @user.lab, url: lab_path(@user.lab), method: :put do |f| %>
+      <div>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+      </div>
+      <div>
+        <%= f.label :email %>
+        <%= f.email_field :email %>
+      </div>
+      <div>
+        <%= f.label :phone %>
+        <%= f.telephone_field :phone %>
+      </div>
+      <div>
+        <%= f.submit "Update Lab Details" %>
+      </div>
+    <% end %>
+  <% else %>
+    <%= form_with model: @lab, url: labs_path, method: :post do |f| %>
+      <div>
+        <%= f.label :name, "Lab Name" %>
+        <%= f.text_field :name %>
+      </div>
+      <div>
+        <%= f.label :email, "Lab Email" %>
+        <%= f.email_field :email %>
+      </div>
+      <div>
+        <%= f.label :phone, "Lab Phone" %>
+        <%= f.telephone_field :phone %>
+      </div>
+      <div>
+        <%= f.submit "Create Lab" %>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>
 
 <%= link_to 'Back to Home', root_path %>
 
