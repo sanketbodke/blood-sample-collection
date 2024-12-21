@@ -1,5 +1,5 @@
 class Lab < ApplicationRecord
-  has_many :users
+  belongs_to :user, optional: true
   has_many :agents
   has_one :address, as: :addressable, dependent: :destroy
 

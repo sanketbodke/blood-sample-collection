@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  belongs_to :lab, optional: true
+  has_one :lab, dependent: :destroy
   has_one :address, as: :addressable, dependent: :destroy
   accepts_nested_attributes_for :address
 
