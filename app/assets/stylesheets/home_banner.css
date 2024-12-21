@@ -1,0 +1,22 @@
+.schedule_an_appointment_banner{
+    background-color: var(--primary-color);
+    padding: 40px 0;
+    text-align: center;
+
+    p{
+        font-size: var(--large-text);
+        color: var(--white-color);
+        font-weight: 500;
+    }
+
+    button{
+        font-size: var(--extra-small-text);
+        font-weight: 400;
+        background-color: var(--white-color);
+        padding: 10px 50px;
+        border-radius: 10px;
+        margin-top: 20px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        cursor: pointer;
+    }
+}

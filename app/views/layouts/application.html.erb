@@ -20,6 +20,15 @@
   <body>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+
+    <% unless controller_name == 'sessions' || controller_name == 'registrations' %>
+      <%= render 'shared/navbar' %>
+    <% end %>
+
     <%= yield %>
+
+    <% unless controller_name == 'sessions' || controller_name == 'registrations' %>
+      <%= render 'shared/footer' %>
+    <% end %>
   </body>
 </html>

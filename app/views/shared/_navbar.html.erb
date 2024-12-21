@@ -1,0 +1,18 @@
+<%= stylesheet_link_tag "navbar", "data-turbo-track": "reload" %>
+<nav>
+  <div class="container navbar">
+    <div class="navbar-logo">
+      <%=  image_tag "logo.png", alt: "logo", class: "logo" %>
+    </div>
+    <ul class="menu-items">
+        <a href="/"> <li>Home</li></a>
+        <a href="#about"><li>About Us</li></a>
+        <a><li>Schedule an appointment</li></a>
+        <a><li>Service Map</li></a>
+        <a><li>Contact Us</li></a>
+    </ul>
+    <div class="user-name">
+      <%= link_to current_user.first_name , profile_path %>
+    </div>
+  </div>
+</nav>

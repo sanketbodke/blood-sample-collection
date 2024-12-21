@@ -1,0 +1,16 @@
+.home-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 75vh;
+}
+
+.home-bg-image img{
+    width: 550px;
+}
+
+.home-text{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}

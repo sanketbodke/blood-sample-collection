@@ -1,0 +1,40 @@
+.footer{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 60px;
+}
+
+.footer-logo img{
+    width: 180px;
+    height: auto;
+}
+
+.footer-menu-items {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .patient-menu-items,
+    .company-menu-items
+    {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .footer-menu-items-heading{
+        font-size: var(--small-text);
+    }
+
+    .footer-menu-item{
+        font-size: var(--small-text);
+    }
+
+}
+
+footer .copyright{
+    text-align: center;
+    margin: 50px 0;
+    font-size: var(--small-text);
+}

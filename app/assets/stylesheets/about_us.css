@@ -1,0 +1,19 @@
+.about{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.about-us-img{
+    order: 1;
+    img{
+        width: 600px;
+        height: auto;
+    }
+}
+
+.about-us-text{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
