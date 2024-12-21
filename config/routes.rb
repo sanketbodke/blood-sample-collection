@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   }
   resources :users, only: [ :update ]
   resources :labs, only: [ :create, :update ]
+  resources :addresses, only: [ :create, :update ]
 
   root "home#index"
-  get "users/profile", to: "home#profile", as: :profile
+  get "users/profile", to: "users#profile", as: :profile
 end

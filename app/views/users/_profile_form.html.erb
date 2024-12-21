@@ -1,0 +1,44 @@
+<h3>Update Your Profile</h3>
+
+<%= form_with model: @user, url: user_path(@user), method: :put do |f| %>
+  <div>
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name %>
+  </div>
+
+  <div>
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %>
+  </div>
+
+  <div>
+    <%= f.label :email %>
+    <%= f.email_field :email %>
+  </div>
+
+  <div>
+    <%= f.label :phone %>
+    <%= f.telephone_field :phone %>
+  </div>
+
+  <% if @user.has_role?(:patient) %>
+    <div>
+      <%= f.label :dob, 'Date of Birth' %>
+      <%= f.date_field :dob %>
+    </div>
+
+    <div>
+      <%= f.label :gender %>
+      <%= f.select :gender, %w[Male Female Other] %>
+    </div>
+
+    <div>
+      <%= f.label :blood_group %>
+      <%= f.select :blood_group, %w[A+ B+ O+ AB+ A- B- O- AB-] %>
+    </div>
+  <% end %>
+
+  <div>
+    <%= f.submit "Save User Details" %>
+  </div>
+<% end %>
