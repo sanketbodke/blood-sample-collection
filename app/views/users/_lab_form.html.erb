@@ -1,22 +1,38 @@
-<h3><%= @user.lab ? 'Update Lab Details' : 'Create Lab' %></h3>
+<%= stylesheet_link_tag "user_profile", "data-turbo-track": "reload" %>
 
-<%= form_with model: (@user.lab || Lab.new), url: @user.lab ? lab_path(@user.lab) : labs_path, method: @user.lab ? :put : :post do |f| %>
-  <div>
-    <%= f.label :name, "Lab Name" %>
-    <%= f.text_field :name %>
-  </div>
 
-  <div>
-    <%= f.label :email, "Lab Email" %>
-    <%= f.email_field :email %>
-  </div>
+<div class="container user-form">
+  <div class="user-form-container">
+    <%= form_with model: (@user.lab || Lab.new),
+                  url: @user.lab ? lab_path(@user.lab) : labs_path,
+                  method: @user.lab ? :put : :post,
+                  html: { class: "user-details-form" } do |f| %>
 
-  <div>
-    <%= f.label :phone, "Lab Phone" %>
-    <%= f.telephone_field :phone %>
-  </div>
+      <h3 class="section-heading">
+        <%= @user.lab ? 'Update Lab Details' : 'Create Lab' %>
+      </h3>
 
-  <div>
-    <%= f.submit @user.lab ? "Update Lab Details" : "Create Lab" %>
+      <div class="user-profile-field">
+        <%= f.label :name, "Lab Name" %>
+        <%= f.text_field :name %>
+      </div>
+
+      <div class="user-profile-field">
+        <%= f.label :email, "Lab Email" %>
+        <%= f.email_field :email %>
+      </div>
+
+      <div class="user-profile-field">
+        <%= f.label :phone, "Lab Phone" %>
+        <%= f.telephone_field :phone %>
+      </div>
+
+      <div>
+        <%= f.submit @user.lab ? "Update Lab Details" : "Create Lab" , class: "primary-btn"%>
+      </div>
+    <% end %>
+    <div class="user-form-image">
+      <%= image_tag "lab.png", alt: "lab image" %>
+    </div>
   </div>
-<% end %>
+</div>

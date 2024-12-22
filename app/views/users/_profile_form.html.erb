@@ -1,44 +1,59 @@
-<h3>Update Your Profile</h3>
+<%= stylesheet_link_tag "user_profile", "data-turbo-track": "reload" %>
 
-<%= form_with model: @user, url: user_path(@user), method: :put do |f| %>
-  <div>
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name %>
-  </div>
+<div class="container user-form">
+  <div class="user-form-container">
+    <%= form_with model: @user,
+                  url: user_path(@user),
+                  method: :put,
+                  html: { class: "user-details-form" } do |f| %>
 
-  <div>
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name %>
-  </div>
+    <h3 class="section-heading">
+      Update Profile Details
+    </h3>
 
-  <div>
-    <%= f.label :email %>
-    <%= f.email_field :email %>
-  </div>
-
-  <div>
-    <%= f.label :phone %>
-    <%= f.telephone_field :phone %>
-  </div>
-
-  <% if @user.has_role?(:patient) %>
-    <div>
-      <%= f.label :dob, 'Date of Birth' %>
-      <%= f.date_field :dob %>
+    <div class="user-profile-field">
+      <%= f.label :first_name %>
+      <%= f.text_field :first_name %>
     </div>
 
-    <div>
-      <%= f.label :gender %>
-      <%= f.select :gender, %w[Male Female Other] %>
+    <div class="user-profile-field">
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name %>
     </div>
 
-    <div>
-      <%= f.label :blood_group %>
-      <%= f.select :blood_group, %w[A+ B+ O+ AB+ A- B- O- AB-] %>
+    <div class="user-profile-field">
+      <%= f.label :email %>
+      <%= f.email_field :email %>
     </div>
-  <% end %>
 
-  <div>
-    <%= f.submit "Save User Details" %>
+    <div class="user-profile-field">
+      <%= f.label :phone %>
+      <%= f.telephone_field :phone %>
+    </div>
+
+    <% if @user.has_role?(:patient) %>
+      <div class="user-profile-field">
+        <%= f.label :dob, 'Date of Birth' %>
+        <%= f.date_field :dob %>
+      </div>
+
+      <div class="user-profile-field">
+        <%= f.label :gender %>
+        <%= f.select :gender, %w[Male Female Other] %>
+      </div>
+
+      <div class="user-profile-field">
+        <%= f.label :blood_group %>
+        <%= f.select :blood_group, %w[A+ B+ O+ AB+ A- B- O- AB-] %>
+      </div>
+    <% end %>
+
+      <div>
+        <%= f.submit "Save Profile Details", class: "primary-btn" %>
+      </div>
+    <% end %>
+    <div class="user-form-image">
+      <%= image_tag "patient.jpg", alt: "address image" %>
+    </div>
   </div>
-<% end %>
+</div>

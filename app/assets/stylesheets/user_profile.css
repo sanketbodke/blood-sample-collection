@@ -1,0 +1,48 @@
+.user-form{
+    padding-top: 100px;
+}
+
+.user-form-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user-details-form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    flex-basis: 50%;
+    padding: 0 80px;
+
+    h3{
+        color: var(--primary-color);
+        margin-bottom: 10px;
+    }
+}
+
+.user-profile-field{
+    display: flex;
+    flex-direction: column;
+
+    label{
+        font-size: var(--small-text);
+    }
+    input,
+    select {
+        padding: 10px;
+        border-radius: 10px;
+        width: 100%;
+        margin: 12px 0;
+        border: 1px solid var(--black-color);
+    }
+}
+
+.user-form-image {
+    flex-basis: 50%;
+
+    img{
+        width: 500px;
+    }
+}

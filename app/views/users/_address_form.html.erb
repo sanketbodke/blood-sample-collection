@@ -1,27 +1,42 @@
-<h3><%= @user.address ? 'Update Address Details' : 'Create Address' %></h3>
+<%= stylesheet_link_tag "user_profile", "data-turbo-track": "reload" %>
 
-<%= form_with model: (@user.address || Address.new), url: @user.address ? address_path(@user.address) : addresses_path, method: @user.address ? :put : :post do |f| %>
-  <div>
-    <%= f.label :street %>
-    <%= f.text_field :street %>
-  </div>
+<div class="container user-form">
+  <div class="user-form-container">
+    <div class="user-form-image">
+      <%= image_tag "direction.png", alt: "address image" %>
+    </div>
+    <%= form_with model: (@user.address || Address.new),
+                  url: @user.address ? address_path(@user.address) : addresses_path,
+                  method: @user.address ? :put : :post,
+                  html: { class: "user-details-form" } do |f| %>
 
-  <div>
-    <%= f.label :city %>
-    <%= f.text_field :city %>
-  </div>
+      <h3 class="section-heading">
+        <%= @user.address ? 'Update Address Details' : 'Create Address' %>
+      </h3>
 
-  <div>
-    <%= f.label :state %>
-    <%= f.text_field :state %>
-  </div>
+      <div class="user-profile-field">
+        <%= f.label :street %>
+        <%= f.text_field :street %>
+      </div>
 
-  <div>
-    <%= f.label :zip %>
-    <%= f.text_field :zip %>
-  </div>
+      <div class="user-profile-field">
+        <%= f.label :city %>
+        <%= f.text_field :city %>
+      </div>
 
-  <div>
-    <%= f.submit @user.address ? "Update Address Details" : "Create Address" %>
+      <div class="user-profile-field">
+        <%= f.label :state %>
+        <%= f.text_field :state %>
+      </div>
+
+      <div class="user-profile-field">
+        <%= f.label :zip %>
+        <%= f.text_field :zip %>
+      </div>
+
+      <div>
+        <%= f.submit @user.address ? "Update Address Details" : "Create Address", class: "primary-btn"%>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>

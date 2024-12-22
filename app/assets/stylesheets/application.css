@@ -4,6 +4,7 @@
     --primary-color: #407BFF;
     --black-color: #000000;
     --white-color: #FFFFFF;
+    --red-color: #FF0000FF;
 
     --large-heading: 32px;
     --large-text: 24px;
@@ -51,6 +52,18 @@ button{
     border-radius: 10px;
     cursor: pointer;
 }
+
+.delete-btn{
+    border: none;
+    outline: none;
+    background-color: var(--red-color);
+    color: var(--white-color);
+    font-size: var(--small-text);
+    padding: 8px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
 
 .section-heading{
     font-size: var(--large-heading);
