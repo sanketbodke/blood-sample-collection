@@ -76,3 +76,44 @@ button{
     font-size: var(--small-text);
     opacity: 0.9;
 }
+
+.static-container{
+    padding-top: 100px;
+}
+
+.static-page-heading{
+    font-size: var(--large-heading);
+    color: var(--primary-color);
+    margin: 30px 0;
+}
+
+.static-page-description{
+    :nth-child(1){
+        font-size: var(--small-text);
+    }
+
+    :nth-child(2){
+        font-size: var(--small-text);
+        color: var(--black-color);
+        padding: 20px 0;
+        opacity: 0.9;
+    }
+}
+
+.static-page-title-description{
+    .static-title{
+        font-size: var(--small-text);
+        color: var(--primary-color);
+    }
+
+    .static-description{
+        font-size: var(--small-text);
+        color: var(--black-color);
+        opacity: 0.9;
+        padding: 20px 0;
+
+        li{
+            padding: 5px 0;
+        }
+    }
+}

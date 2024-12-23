@@ -19,6 +19,7 @@ gem "jbuilder"
 gem "devise"
 gem "rolify"
 gem "dotenv"
+gem 'high_voltage', '~> 4.0.0'
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 

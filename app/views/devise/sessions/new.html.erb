@@ -17,8 +17,9 @@
       <%= f.submit "Log in", class: "primary-btn" %>
     <% end %>
 
+    <%= link_to "Forgot your password?", new_user_password_path, style: "margin: 10px 0" %>
     <a href="/users/sign_up" class="form-navigator">Don't have an account ? <span>Register</span></a>
-    <%= link_to "Forgot your password?", new_user_password_path %>
+
   </div>
   <div class="auth-image-container">
     <%= image_tag "auth_img.png", alt: "Description", class: "image-class" %>

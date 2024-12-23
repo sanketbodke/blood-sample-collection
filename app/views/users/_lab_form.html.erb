@@ -1,6 +1,5 @@
 <%= stylesheet_link_tag "user_profile", "data-turbo-track": "reload" %>
 
-
 <div class="container user-form">
   <div class="user-form-container">
     <%= form_with model: (@user.lab || Lab.new),

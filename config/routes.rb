@@ -8,4 +8,6 @@ Rails.application.routes.draw do
 
   root "home#index"
   get "users/profile", to: "users#profile", as: :profile
+  get "/faqs", to: "high_voltage/pages#show", id: "faqs"
+  get "/privacy-policy", to: "high_voltage/pages#show", id: "privacy-policy"
 end

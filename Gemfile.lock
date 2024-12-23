@@ -112,6 +112,7 @@ GEM
     erubi (1.13.1)
     globalid (1.2.1)
       activesupport (>= 6.1)
+    high_voltage (4.0.0)
     i18n (1.14.6)
       concurrent-ruby (~> 1.0)
     importmap-rails (2.0.3)
@@ -312,6 +313,7 @@ DEPENDENCIES
   debug
   devise
   dotenv
+  high_voltage (~> 4.0.0)
   importmap-rails
   jbuilder
   mysql2 (~> 0.5)
