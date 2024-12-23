@@ -8,18 +8,20 @@
                   method: @user.lab ? :put : :post,
                   html: { class: "user-details-form" } do |f| %>
 
-      <h3 class="section-heading">
+      <h3 class="section-heading lab-patient-form-heading">
         <%= @user.lab ? 'Update Lab Details' : 'Create Lab' %>
       </h3>
 
-      <div class="user-profile-field">
-        <%= f.label :name, "Lab Name" %>
-        <%= f.text_field :name %>
-      </div>
+      <div class="user-field-group">
+        <div class="user-profile-field">
+          <%= f.label :name, "Lab Name" %>
+          <%= f.text_field :name %>
+        </div>
 
-      <div class="user-profile-field">
-        <%= f.label :email, "Lab Email" %>
-        <%= f.email_field :email %>
+        <div class="user-profile-field">
+          <%= f.label :email, "Lab Email" %>
+          <%= f.email_field :email %>
+        </div>
       </div>
 
       <div class="user-profile-field">
@@ -31,8 +33,5 @@
         <%= f.submit @user.lab ? "Update Lab Details" : "Create Lab" , class: "primary-btn"%>
       </div>
     <% end %>
-    <div class="user-form-image">
-      <%= image_tag "lab.png", alt: "lab image" %>
-    </div>
   </div>
 </div>

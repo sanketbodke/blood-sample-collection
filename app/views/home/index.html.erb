@@ -1,29 +1,7 @@
 <%= stylesheet_link_tag "home", "data-turbo-track": "reload" %>
 
-<div class="container home-container">
-  <div class="home-bg-image">
-    <%=  image_tag "home.png", alt: "image" %>
-  </div>
-  <div class="home-text">
-    <h1 class="section-heading">Welcome to Sample Sure</h1>
-
-    <p class="section-text">
-      Your trusted platform for seamless blood sample collection and reporting.
-      SampleSure connects patients with agencies for at-home blood sample collection and report delivery, ensuring a smooth and efficient healthcare experience.
-    </p>
-
-    <a><button class="primary-btn">Learn More</button></a>
-  </div>
-</div>
-
-<%= render "shared/home_banner",
-           banner_text: "Scheduling an appointment",
-           button_text: "Schedule",
-           button_link: "/" %>
-
-<%= render "shared/about_us" %>
-
-<%= render "shared/home_banner",
-           banner_text: "Check service map",
-           button_text: "Check",
-           button_link: "/" %>
+<% if current_user && current_user.has_role?(:patient) %>
+  <%= render "shared/patient_home" %>
+<% else %>
+  <%= render "shared/lab_home" %>
+<% end %>

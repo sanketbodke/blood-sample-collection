@@ -2,17 +2,31 @@
 <nav>
   <div class="container navbar">
     <div class="navbar-logo">
-      <%=  image_tag "logo.png", alt: "logo", class: "logo" %>
+      <%= image_tag "logo.png", alt: "logo", class: "logo" %>
     </div>
-    <ul class="menu-items">
+    <% if current_user %>
+      <ul class="menu-items">
         <a href="/"> <li>Home</li></a>
-        <a href="#about"><li>About Us</li></a>
+        <a href="/#about"><li>About Us</li></a>
         <a><li>Schedule an appointment</li></a>
         <a><li>Service Map</li></a>
         <a><li>Contact Us</li></a>
-    </ul>
-    <div class="user-name">
-      <%= link_to current_user.first_name , profile_path %>
+      </ul>
+    <% end %>
+    <div class="user-menu" id="userMenu">
+      <% if current_user %>
+        <span class="user-name" id="userName">
+          <%= current_user.first_name %>
+        </span>
+        <div class="user-menu-dropdown" id="userMenuDropdown">
+          <%= link_to "Edit Profile", profile_path %>
+          <%= link_to "Log Out", destroy_user_session_path, method: :delete, data: { turbo_method: :delete } %>
+        </div>
+      <% else %>
+        <span class="user-name">
+          <%= link_to "Log In", new_user_session_path %>
+        </span>
+      <% end %>
     </div>
   </div>
 </nav>

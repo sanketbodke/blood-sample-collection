@@ -2,9 +2,6 @@
 
 <div class="container user-form">
   <div class="user-form-container">
-    <div class="user-form-image">
-      <%= image_tag "direction.png", alt: "address image" %>
-    </div>
     <%= form_with model: (@user.address || Address.new),
                   url: @user.address ? address_path(@user.address) : addresses_path,
                   method: @user.address ? :put : :post,
@@ -14,24 +11,28 @@
         <%= @user.address ? 'Update Address Details' : 'Create Address' %>
       </h3>
 
-      <div class="user-profile-field">
-        <%= f.label :street %>
-        <%= f.text_field :street %>
+      <div class="user-field-group">
+        <div class="user-profile-field">
+          <%= f.label :street %>
+          <%= f.text_field :street %>
+        </div>
+
+        <div class="user-profile-field">
+          <%= f.label :city %>
+          <%= f.text_field :city %>
+        </div>
       </div>
 
-      <div class="user-profile-field">
-        <%= f.label :city %>
-        <%= f.text_field :city %>
-      </div>
+      <div class="user-field-group">
+        <div class="user-profile-field">
+          <%= f.label :state %>
+          <%= f.text_field :state %>
+        </div>
 
-      <div class="user-profile-field">
-        <%= f.label :state %>
-        <%= f.text_field :state %>
-      </div>
-
-      <div class="user-profile-field">
-        <%= f.label :zip %>
-        <%= f.text_field :zip %>
+        <div class="user-profile-field">
+          <%= f.label :zip %>
+          <%= f.text_field :zip %>
+        </div>
       </div>
 
       <div>

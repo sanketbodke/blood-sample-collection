@@ -7,53 +7,51 @@
                   method: :put,
                   html: { class: "user-details-form" } do |f| %>
 
-    <h3 class="section-heading">
+    <h3 class="section-heading lab-patient-form-heading">
       Update Profile Details
     </h3>
 
-    <div class="user-profile-field">
-      <%= f.label :first_name %>
-      <%= f.text_field :first_name %>
-    </div>
-
-    <div class="user-profile-field">
-      <%= f.label :last_name %>
-      <%= f.text_field :last_name %>
-    </div>
-
-    <div class="user-profile-field">
-      <%= f.label :email %>
-      <%= f.email_field :email %>
-    </div>
-
-    <div class="user-profile-field">
-      <%= f.label :phone %>
-      <%= f.telephone_field :phone %>
-    </div>
-
-    <% if @user.has_role?(:patient) %>
+    <div class="user-field-group">
       <div class="user-profile-field">
-        <%= f.label :dob, 'Date of Birth' %>
-        <%= f.date_field :dob %>
+        <%= f.label :first_name %>
+        <%= f.text_field :first_name %>
       </div>
 
       <div class="user-profile-field">
-        <%= f.label :gender %>
-        <%= f.select :gender, %w[Male Female Other] %>
+        <%= f.label :last_name %>
+        <%= f.text_field :last_name %>
       </div>
+    </div>
 
+    <div class="user-field-group">
       <div class="user-profile-field">
         <%= f.label :blood_group %>
         <%= f.select :blood_group, %w[A+ B+ O+ AB+ A- B- O- AB-] %>
       </div>
+
+      <div class="user-profile-field">
+        <%= f.label :phone %>
+        <%= f.telephone_field :phone %>
+      </div>
+    </div>
+
+    <% if @user.has_role?(:patient) %>
+       <div class="user-field-group">
+          <div class="user-profile-field">
+            <%= f.label :dob, 'Date of Birth' %>
+            <%= f.date_field :dob %>
+          </div>
+
+          <div class="user-profile-field">
+            <%= f.label :gender %>
+            <%= f.select :gender, %w[Male Female Other] %>
+          </div>
+        </div>
     <% end %>
 
       <div>
         <%= f.submit "Save Profile Details", class: "primary-btn" %>
       </div>
     <% end %>
-    <div class="user-form-image">
-      <%= image_tag "patient.jpg", alt: "address image" %>
-    </div>
   </div>
 </div>

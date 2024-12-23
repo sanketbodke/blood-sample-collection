@@ -1,11 +1,9 @@
 .user-form{
-    padding-top: 100px;
-}
+    padding-top: 40px;
 
-.user-form-container{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    .lab-patient-form-heading{
+        padding-top: 70px;
+    }
 }
 
 .user-details-form{
@@ -18,13 +16,18 @@
 
     h3{
         color: var(--primary-color);
-        margin-bottom: 10px;
+        margin-bottom: 30px;
     }
 }
 
+.user-field-group{
+    display: flex;
+    gap: 30px;
+}
 .user-profile-field{
     display: flex;
     flex-direction: column;
+    width: 400px;
 
     label{
         font-size: var(--small-text);
