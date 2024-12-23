@@ -3,6 +3,7 @@
 
     .lab-patient-form-heading{
         padding-top: 70px;
+        font-size: var(--large-text);
     }
 }
 
@@ -17,6 +18,7 @@
     h3{
         color: var(--primary-color);
         margin-bottom: 30px;
+        font-size: var(--large-text);
     }
 }
 
@@ -34,6 +36,7 @@
     }
     input,
     select {
+        font-size: var(--extra-small-text);
         padding: 10px;
         border-radius: 10px;
         width: 100%;

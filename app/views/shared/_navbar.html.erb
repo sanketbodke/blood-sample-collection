@@ -4,7 +4,7 @@
     <div class="navbar-logo">
       <%= image_tag "logo.png", alt: "logo", class: "logo" %>
     </div>
-    <% if current_user %>
+    <% if current_user && current_user.has_role?(:patient) %>
       <ul class="menu-items">
         <a href="/"> <li>Home</li></a>
         <a href="/#about"><li>About Us</li></a>

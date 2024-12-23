@@ -18,8 +18,8 @@
   </head>
 
   <body>
-    <!--    <p class="notice"><%#= notice %></p>-->
-    <!--    <p class="alert"><%#= alert %></p>-->
+<!--        <p class="notice"><%#= notice %></p>-->
+<!--        <p class="alert"><%#= alert %></p>-->
 
     <% unless controller_name == 'sessions' || controller_name == 'registrations' || (current_user && current_user.has_role?(:lab)) %>
       <%= render 'shared/navbar' %>
