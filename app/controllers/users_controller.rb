@@ -19,9 +19,11 @@ class UsersController < ApplicationController
 
   def user_params
     if current_user.has_role?(:lab)
-      params.require(:user).permit(:first_name, :last_name, :email, :phone, :lab_name, :lab_email, :lab_phone)
+      params.require(:user).permit(:first_name, :last_name, :email, :phone, :lab_name, :lab_email, :lab_phone,
+                                   address_attributes: [ :id, :street, :city, :state, :zip ])
     else
-      params.require(:user).permit(:first_name, :last_name, :email, :phone, :dob, :gender, :blood_group)
+      params.require(:user).permit(:first_name, :last_name, :email, :phone, :dob, :gender, :blood_group,
+                                   address_attributes: [ :id, :street, :city, :state, :zip ])
     end
   end
 end

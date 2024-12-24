@@ -1,11 +1,9 @@
 <% if @user.has_role?(:patient) %>
   <%= render 'users/profile_form', user: @user %>
-  <%= render 'users/address_form', user: @user %>
 <% end %>
 
 <% if @user.has_role?(:lab) %>
   <%= render 'users/lab_form', user: @user %>
-  <%= render 'users/address_form', user: @user %>
 <% end %>
 
 <%#= button_to 'Logout', destroy_user_session_path, method: :delete, class: 'logout-button primary-btn' %>
