@@ -2,12 +2,15 @@
 
 :root{
     --primary-color: #407BFF;
+    --secondary-color: #88b0fa;
     --black-color: #000000;
     --white-color: #FFFFFF;
     --red-color: #FF0000FF;
     --success-color: #5be85b;
 
     --large-heading: 32px;
+    --medium-heading: 30px;
+    --small-heading: 28px;
     --large-text: 24px;
     --medium-text: 20px;
     --small-text: 16px;
@@ -145,3 +148,79 @@ button{
 /*    padding: 10px 20px;*/
 /*    box-shadow: 0 0 8px rgba(0, 0, 0, .10);*/
 /*}*/
+
+.lab-page-container{
+    padding-top: 120px;
+}
+
+
+.lab-page-title{
+    color: var(--primary-color);
+    font-size: var(--medium-heading);
+}
+
+.lab-search-container{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 20px 0;
+
+    input{
+        padding: 10px;
+        border-radius: 10px;
+        outline: none;
+        border: 1px solid var(--black-color);
+        width: 100%;
+    }
+}
+
+.lab-btn{
+    width: 150px;
+    text-align: center;
+}
+
+.lab-list-table{
+    width: 100%;
+    padding: 20px 0;
+    text-align: left;
+    border-collapse: collapse;
+}
+
+.lab-list-table-head{
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    font-size: var(--small-text);
+}
+
+.lab-table-head-field, td{
+    padding: 15px;
+    font-weight: 400;
+    border-bottom: 1px solid var(--secondary-color);
+}
+
+.form-sub-heading{
+    color: var(--black-color);
+    font-size: var(--medium-text);
+    font-weight: 600;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.lab-form-table-icons{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.lab-form-delete-icon,
+.lab-form-edit-icon {
+    width: 20px;
+    height: auto;
+    background-color: var(--white-color);
+}
+
+.lab-form-previous-icon{
+    width: 40px;
+    height: auto;
+    background-position: center;
+}

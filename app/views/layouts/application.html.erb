@@ -21,7 +21,7 @@
 <!--        <p class="notice"><%#= notice %></p>-->
 <!--        <p class="alert"><%#= alert %></p>-->
 
-    <% unless controller_name == 'sessions' || controller_name == 'registrations' || (current_user && current_user.has_role?(:lab)) %>
+    <% unless controller_name == 'sessions' || controller_name == 'registrations' %>
       <%= render 'shared/navbar' %>
     <% end %>
 
@@ -30,5 +30,7 @@
     <% unless controller_name == 'sessions' || controller_name == 'registrations' || (current_user && current_user.has_role?(:lab)) %>
       <%= render 'shared/footer' %>
     <% end %>
+
+  <script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials[:google_maps_api_key] %>&libraries=places&callback=initMap" async defer data-turbolinks-eval="false"></script>
   </body>
 </html>

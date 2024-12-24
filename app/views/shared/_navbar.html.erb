@@ -12,6 +12,12 @@
         <a><li>Service Map</li></a>
         <a><li>Contact Us</li></a>
       </ul>
+    <% else %>
+      <ul class="menu-items">
+        <a href="/"> <li>Patient Samples</li></a>
+        <a href="/agents"><li>Manage Agents</li></a>
+        <a href="/"><li>Manage Reports</li></a>
+      </ul>
     <% end %>
     <div class="user-menu" id="userMenu">
       <% if current_user %>

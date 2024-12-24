@@ -1,0 +1,61 @@
+<%= stylesheet_link_tag "create_agent", "data-turbo-track": "reload" %>
+<%= stylesheet_link_tag "user_profile", "data-turbo-track": "reload" %>
+
+<div class="container lab-page-container">
+  <%= link_to agents_path do %>
+    <%= image_tag "previous.png", alt: "Edit", class: "lab-form-previous-icon"%>
+  <% end %>
+  <h1 class="lab-page-title">Update Agent</h1>
+  <%= form_with model: @agent,
+                url: agent_path(@agent),
+                method: :patch do |f| %>
+
+    <h3 class="form-sub-heading">Personal Details</h3>
+
+    <div class="user-field-group">
+      <div class="user-profile-field">
+        <%= f.label :name, "Agent Name" %>
+        <%= f.text_field :name %>
+      </div>
+
+      <div class="user-profile-field">
+        <%= f.label :phone, "Phone" %>
+        <%= f.text_field :phone %>
+      </div>
+    </div>
+
+    <div class="user-profile-field">
+      <%= f.label :email, "Email" %>
+      <%= f.email_field :email %>
+    </div>
+
+    <div>
+      <h3 class="form-sub-heading">Address</h3>
+      <%= f.fields_for :address do |address_form| %>
+        <div class="user-field-group">
+          <div class="user-profile-field">
+            <%= address_form.label :street, "Street" %>
+            <%= address_form.text_field :street %>
+          </div>
+          <div class="user-profile-field">
+            <%= address_form.label :city, "City" %>
+            <%= address_form.text_field :city %>
+          </div>
+        </div>
+        <div class="user-field-group">
+          <div class="user-profile-field">
+            <%= address_form.label :state, "State" %>
+            <%= address_form.text_field :state %>
+          </div>
+          <div class="user-profile-field">
+            <%= address_form.label :zip, "Zip Code" %>
+            <%= address_form.text_field :zip %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+    <%= f.submit "Update Agent", class: "primary-btn" %>
+
+  <% end %>
+</div>

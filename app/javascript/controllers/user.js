@@ -15,3 +15,12 @@ document.addEventListener("turbo:load", function () {
         });
     }
 });
+
+document.getElementById("agent-search-input").addEventListener("input", function() {
+    const searchTerm = this.value.toLowerCase();
+    const rows = document.querySelectorAll(".lab-list-table tbody tr");
+
+    rows.forEach(row => {
+        row.style.display = row.textContent.toLowerCase().includes(searchTerm) ? "" : "none";
+    });
+});

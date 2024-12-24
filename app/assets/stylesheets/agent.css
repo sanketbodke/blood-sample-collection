@@ -1,0 +1,47 @@
+.agent-container{
+    padding-top: 120px;
+}
+
+.lab-page-title{
+    color: var(--primary-color);
+    font-size: var(--medium-heading);
+}
+
+.lab-search-container{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 20px 0;
+
+    input{
+        padding: 10px;
+        border-radius: 10px;
+        outline: none;
+        border: 1px solid var(--black-color);
+        width: 100%;
+    }
+}
+
+.lab-btn{
+    width: 150px;
+    text-align: center;
+}
+
+.lab-list-table{
+    width: 100%;
+    padding: 20px 0;
+    text-align: left;
+    border-collapse: collapse;
+}
+
+.lab-list-table-head{
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    font-size: var(--small-text);
+}
+
+.lab-table-head-field, td{
+    padding: 15px;
+    font-weight: 400;
+    border-bottom: 1px solid var(--secondary-color);
+}

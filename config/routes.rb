@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :users, only: [ :update ]
   resources :labs, only: [ :create, :update ]
   resources :addresses, only: [ :create, :update ]
+  resources :agents
 
   root "home#index"
   get "users/profile", to: "users#profile", as: :profile
