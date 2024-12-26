@@ -1,0 +1,32 @@
+<script>
+      function initMap() {
+          const center = { lat: 19.5937, lng: 74.9629 };
+          const map = new google.maps.Map(document.getElementById("map"), {
+              zoom: 7,
+              center: center,
+          });
+
+          const addresses = <%= raw @addresses.to_json %>;
+          addresses.forEach(address => {
+              const marker = new google.maps.Marker({
+                  position: { lat: address.latitude, lng: address.longitude },
+                  map: map,
+                  title: `${address.street}, ${address.city}, ${address.state}}`,
+              });
+
+              const infowindow = new google.maps.InfoWindow({
+                  content: `<p>${address.street}, ${address.city}, ${address.state}`,
+              });
+
+              marker.addListener("click", () => {
+                  infowindow.open(map, marker);
+              });
+          });
+      }
+  </script>
+<body onload="initMap()">
+    <div class="container">
+      <h1 class="static-page-heading" style="padding-top: 120px">Service Map</h1>
+      <div id="map" style="width: 100%; height: 550px; border-radius: 10px"></div>
+    </div>
+</body>

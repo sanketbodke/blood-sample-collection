@@ -5,5 +5,4 @@ class Address < ApplicationRecord
   validates :city, presence: true, length: { maximum: 100 }
   validates :state, presence: true, length: { maximum: 100 }
   validates :zip, presence: true
-
 end
