@@ -1,9 +1,8 @@
 class AgentsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_agent, only: [ :edit, :update, :destroy ]
-
   def index
-    @agents = current_user.lab.agents.includes(:address)
+    @agents = current_user.lab.agents.includes(:address).recently_updated
   end
 
   def new

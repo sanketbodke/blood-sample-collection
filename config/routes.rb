@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   get "users/profile", to: "users#profile", as: :profile
   get "/faqs", to: "high_voltage/pages#show", id: "faqs"
   get "/privacy-policy", to: "high_voltage/pages#show", id: "privacy-policy"
+  get "/service-map", to: "maps#service_map", as: "service_map"
 end

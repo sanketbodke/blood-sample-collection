@@ -8,6 +8,7 @@
   <h1 class="lab-page-title">Update Agent</h1>
   <%= form_with model: @agent,
                 url: agent_path(@agent),
+                data: { turbo: false },
                 method: :patch do |f| %>
 
     <h3 class="form-sub-heading">Personal Details</h3>

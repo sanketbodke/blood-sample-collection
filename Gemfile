@@ -20,6 +20,8 @@ gem "devise"
 gem "rolify"
 gem "dotenv"
 gem "high_voltage", "~> 4.0.0"
+gem "google_places", "~> 0.1.0"
+gem "geocoder"
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 
