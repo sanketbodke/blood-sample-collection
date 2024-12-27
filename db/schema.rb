@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_12_24_133858) do
+ActiveRecord::Schema[7.2].define(version: 2024_12_27_101250) do
   create_table "addresses", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "street"
     t.string "city"
@@ -20,8 +20,8 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_24_133858) do
     t.bigint "addressable_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.decimal "latitude", precision: 10, scale: 6
-    t.decimal "longitude", precision: 10, scale: 6
+    t.decimal "latitude", precision: 10
+    t.decimal "longitude", precision: 10
     t.index ["addressable_type", "addressable_id"], name: "index_addresses_on_addressable"
   end
 
@@ -43,6 +43,20 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_24_133858) do
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.index ["user_id"], name: "index_labs_on_user_id"
+  end
+
+  create_table "patient_appointments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "agent_id", null: false
+    t.datetime "appointment_time", null: false
+    t.string "status", default: "pending"
+    t.string "collection_location"
+    t.text "note"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "test_type"
+    t.index ["agent_id"], name: "index_patient_appointments_on_agent_id"
+    t.index ["user_id"], name: "index_patient_appointments_on_user_id"
   end
 
   create_table "roles", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -84,4 +98,6 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_24_133858) do
   end
 
   add_foreign_key "agents", "labs"
+  add_foreign_key "patient_appointments", "agents"
+  add_foreign_key "patient_appointments", "users"
 end
