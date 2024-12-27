@@ -78,7 +78,7 @@ GEM
     base64 (0.2.0)
     bcrypt (3.1.20)
     benchmark (0.4.0)
-    bigdecimal (3.1.8)
+    bigdecimal (3.1.9)
     bindex (0.8.1)
     bootsnap (1.18.4)
       msgpack (~> 1.2)
@@ -122,8 +122,8 @@ GEM
       csv (>= 3.0.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
-    google_places (0.1.1)
-      httparty
+    google_places (2.0.0)
+      httparty (>= 0.13.1)
     high_voltage (4.0.0)
     httparty (0.22.0)
       csv
@@ -350,7 +350,7 @@ DEPENDENCIES
   dotenv
   factory_bot_rails
   geocoder
-  google_places (~> 0.1.0)
+  google_places (~> 2.0.0)
   high_voltage (~> 4.0.0)
   importmap-rails
   jbuilder
