@@ -1,0 +1,60 @@
+<%= stylesheet_link_tag "new_appointment", "data-turbo-track": "reload" %>
+
+
+<div class="container lab-page-container">
+  <%= link_to patient_appointments_path do %>
+    <%= image_tag "previous.png", alt: "Back", class: "lab-form-previous-icon"%>
+  <% end %>
+
+  <h1 class="lab-page-title">Edit Appointment</h1>
+
+  <div class="new-form-container">
+    <%= form_with model: @appointment,
+                  url: patient_appointment_path(@appointment),
+                  method: :put,
+                  html: { class: "create-new-form" } do |form| %>
+
+      <div class="new-form-group">
+        <%= form.label :agent_id, "Select Agent" %>
+        <%= form.collection_select :agent_id, @agents, :id, :name, { prompt: "Choose an agent" }, { class: "form-control", required: true } %>
+      </div>
+
+      <div class="new-form-group">
+        <%= form.label :appointment_time, "Appointment Time" %>
+        <%= form.datetime_local_field :appointment_time %>
+      </div>
+
+      <div class="new-form-group">
+        <%= form.label :test_type, "Test Type" %>
+        <%= form.select :test_type, options_for_select(
+          [
+            "Blood Sugar Test",
+            "Complete Blood Count (CBC)",
+            "Blood Pressure Test",
+            "Cholesterol Test",
+            "Liver Function Test",
+            "Kidney Function Test",
+            "Thyroid Function Test",
+            "Hemoglobin Test",
+            "HIV Test"
+          ], prompt: "Select Test Type"), class: "form-control" %>
+      </div>
+
+      <div class="new-form-group">
+        <%= form.label :collection_location, "Collection Location" %>
+        <%= form.text_field :collection_location %>
+      </div>
+
+      <div class="new-form-group">
+        <%= form.label :note, "Additional Notes" %>
+        <%= form.text_area :note, class: "form-control", rows: 3 %>
+      </div>
+
+      <%= form.submit "Update Appointment", class: "primary-btn new-form-btn" %>
+    <% end %>
+
+    <div class="new-form-image">
+      <%= image_tag "new_appointment.png", alt: "appointment image", class: "new-form-image" %>
+    </div>
+  </div>
+</div>

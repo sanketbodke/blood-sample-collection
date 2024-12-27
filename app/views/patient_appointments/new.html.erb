@@ -1,0 +1,59 @@
+<%= stylesheet_link_tag "new_appointment", "data-turbo-track": "reload" %>
+
+<div class="container lab-page-container">
+  <%= link_to patient_appointments_path do %>
+    <%= image_tag "previous.png", alt: "Back", class: "lab-form-previous-icon"%>
+  <% end %>
+
+  <h1 class="lab-page-title">Schedule Appointment</h1>
+
+  <div class="new-form-container">
+    <%= form_with model: @appointment,
+                  url: patient_appointments_path,
+                  method: :post,
+                  html: { class: "create-new-form" } do |f| %>
+
+      <div class="new-form-group">
+        <%= f.label :agent_id, "Select Agent" %>
+        <%= f.collection_select :agent_id, @agents, :id, :name, prompt: "Choose an Agent" %>
+      </div>
+
+      <div class="new-form-group">
+        <%= f.label :appointment_time, "Appointment Time" %>
+          <%= f.datetime_local_field :appointment_time, class: "form-control", required: true %>
+      </div>
+
+      <div class="new-form-group">
+        <%= f.label :test_type, "Test Type" %>
+        <%= f.select :test_type, options_for_select(
+          [
+            "Blood Sugar Test",
+            "Complete Blood Count (CBC)",
+            "Blood Pressure Test",
+            "Cholesterol Test",
+            "Liver Function Test",
+            "Kidney Function Test",
+            "Thyroid Function Test",
+            "Hemoglobin Test",
+            "HIV Test"
+          ], prompt: "Select Test Type"), class: "form-control" %>
+      </div>
+
+      <div class="new-form-group">
+        <%= f.label :collection_location, "Collection Location" %>
+        <%= f.text_field :collection_location %>
+      </div>
+
+      <div class="new-form-group">
+        <%= f.label :note, "Note" %>
+        <%= f.text_area :note %>
+      </div>
+
+      <%= f.submit "Schedule Appointment", class: "primary-btn new-form-btn" %>
+    <% end %>
+
+    <div class="new-form-image">
+      <%= image_tag "new_appointment.png", alt: "appointment image", class: "new-form-image" %>
+    </div>
+  </div>
+</div>

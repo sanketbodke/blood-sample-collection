@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resources :labs, only: [ :create, :update ]
   resources :addresses, only: [ :create, :update ]
   resources :agents
+  resources :patient_appointments
+  resources :patient_samples
 
   root "home#index"
   get "users/profile", to: "users#profile", as: :profile

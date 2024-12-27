@@ -1,0 +1,23 @@
+<%= stylesheet_link_tag "new_appointment", "data-turbo-track": "reload" %>
+
+
+<div class="container lab-page-container">
+
+  <%= link_to patient_appointments_path do %>
+    <%= image_tag "previous.png", alt: "Back", class: "lab-form-previous-icon"%>
+  <% end %>
+
+  <h1 class="lab-page-title">Update Patient Status</h1>
+
+  <%= form_with model: @appointment,
+                url: patient_sample_path(@appointment),
+                method: :put do |f| %>
+
+    <div class="new-form-group">
+      <%= f.label :status, "Update Status" %>
+      <%= f.select :status, ["pending", "in progress", "completed"], {}, class: "form-control" %>
+    </div>
+
+    <%= f.submit "Update Status", class: "primary-btn new-form-btn" %>
+  <% end %>
+</div>

@@ -1,0 +1,57 @@
+<%= stylesheet_link_tag "agent", "data-turbo-track": "reload" %>
+
+<div class="container lab-page-container">
+  <h1 class="lab-page-title">Your Appointments</h1>
+
+  <div class="lab-search-container">
+    <input
+      type="text"
+      id="agent-search-input"
+      placeholder="Search Appointment"
+    >
+    <%= link_to 'Schedule Appointment', new_patient_appointment_path, class: 'lab-btn primary-btn' %>
+  </div>
+  <% if @appointments.present? %>
+    <table class="lab-list-table">
+      <thead class="lab-list-table-head">
+      <tr>
+        <th class="lab-table-head-field">Appointment ID</th>
+        <th class="lab-table-head-field">Agent</th>
+        <th class="lab-table-head-field">Appointment Time</th>
+        <th class="lab-table-head-field">Test Type</th>
+        <th class="lab-table-head-field">Status</th>
+        <th class="lab-table-head-field">Location</th>
+        <th class="lab-table-head-field">Notes</th>
+        <th class="lab-table-head-field">Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @appointments.each do |appointment| %>
+        <tr>
+          <td class="lab-table-data-field"><%= appointment.id %></td>
+          <td class="lab-table-data-field"><%= appointment.agent.name %></td>
+          <td class="lab-table-data-field"><%= appointment.appointment_time.strftime("%d-%m-%Y %H:%M") %></td>
+          <td class="lab-table-data-field"><%= appointment.test_type %></td>
+          <td class="lab-table-data-field"><%= appointment.status.capitalize %></td>
+          <td class="lab-table-data-field">
+            <%= current_user.address.street %> ,
+            <%= current_user.address.city %>
+          </td>
+          <td class="lab-table-data-field"><%= appointment.note %></td>
+          <td class="lab-form-table-icons">
+            <%= link_to edit_patient_appointment_path(appointment), class: 'btn btn-primary' do %>
+              <%= image_tag "edit_icon.png", alt: "Edit", class: "lab-form-edit-icon"%>
+            <% end %>
+
+            <%= button_to patient_appointment_path(appointment), method: :delete, data: { confirm: "Are you sure you want to delete this appointment?" } do %>
+              <%= image_tag "delete_icon.png", alt: "Delete", class: "lab-form-delete-icon" %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+    <% else %>
+    <%= link_to 'No records found', new_patient_appointment_path %>
+  <% end %>
+</div>
