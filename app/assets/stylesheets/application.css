@@ -224,3 +224,37 @@ button{
     height: auto;
     background-position: center;
 }
+
+/* form global styling */
+
+.form-field-group {
+    display: flex;
+    gap: 30px;
+}
+
+.form-profile-field {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+
+    label{
+        font-size: var(--small-text);
+    }
+    input,
+    select {
+        font-size: var(--extra-small-text);
+        padding: 10px;
+        border-radius: 10px;
+        width: 100%;
+        margin: 12px 0;
+        border: 1px solid var(--black-color);
+    }
+}
+
+.form-image {
+    flex-basis: 50%;
+
+    img{
+        width: 500px;
+    }
+}
