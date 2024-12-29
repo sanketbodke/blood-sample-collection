@@ -20,3 +20,9 @@
         cursor: pointer;
     }
 }
+
+@media (max-width: 768px){
+    .schedule_an_appointment_banner{
+        margin: 30px 0;
+    }
+}

@@ -63,3 +63,28 @@
         color: var(--primary-color);
     }
 }
+
+@media (max-width: 500px) {
+    .auth-form{
+        flex-basis: 100%;
+    }
+
+    .form-container .auth-image-container {
+        display: none;
+    }
+}
+
+@media (min-width: 501px) and (max-width: 768px) {
+    .auth-form{
+        flex-basis: 100%;
+    }
+
+    .form-container .auth-image-container {
+        display: none;
+    }
+}
+
+@media(min-width: 769px) and (max-width: 1200px) {
+    /**/
+}
+

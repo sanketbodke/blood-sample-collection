@@ -38,3 +38,13 @@ footer .copyright{
     margin: 50px 0;
     font-size: var(--small-text);
 }
+
+@media (max-width: 768px){
+    .footer{
+        gap: 30px;
+    }
+
+    .footer-menu-item{
+        font-size: var(--extra-small-text);
+    }
+}

@@ -13,8 +13,9 @@
     </div>
 
     <% if @appointments.present? %>
-    <table class="lab-list-table">
-      <thead class="lab-list-table-head">
+    <div class="table-container">
+      <table class="lab-list-table">
+        <thead class="lab-list-table-head">
         <tr>
           <th class="lab-table-head-field">Appointment ID</th>
           <th class="lab-table-head-field">Patient</th>
@@ -26,8 +27,8 @@
           <th class="lab-table-head-field">Note</th>
           <th class="lab-table-head-field">Actions</th>
         </tr>
-      </thead>
-      <tbody>
+        </thead>
+        <tbody>
         <% @appointments.each  do | appointment | %>
           <tr>
             <td class="lab-table-data-field"> <%= appointment.id %> </td>
@@ -51,8 +52,9 @@
             </td>
           </tr>
         <% end %>
-      </tbody>
-    </table>
+        </tbody>
+      </table>
+    </div>
     <% else %>
       <p>No Records Found</p>
     <% end %>

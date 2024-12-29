@@ -258,3 +258,50 @@ button{
         width: 500px;
     }
 }
+
+@media (max-width: 768px) {
+    .section-heading {
+        font-size: var(--large-text);
+        color: var(--primary-color);
+    }
+
+    .section-text {
+        font-size: var(--extra-small-text);
+    }
+}
+
+.table-container {
+    overflow: auto;
+    max-width: 100%;
+}
+
+.lab-list-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto;
+}
+
+.lab-list-table-head th {
+    text-align: left;
+    padding: 8px;
+}
+
+.lab-table-data-field {
+    padding: 8px;
+    white-space: nowrap;
+}
+
+.lab-form-table-icons {
+    display: flex;
+    gap: 8px;
+}
+
+@media (max-width: 768px) {
+    .table-container {
+        overflow-x: scroll;
+    }
+
+    .lab-list-table {
+        font-size: 14px;
+    }
+}

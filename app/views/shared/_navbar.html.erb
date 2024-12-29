@@ -4,35 +4,40 @@
     <div class="navbar-logo">
       <%= image_tag "logo.png", alt: "logo", class: "logo" %>
     </div>
-    <% if current_user && current_user.has_role?(:patient) %>
-      <ul class="menu-items">
-        <a href="/"> <li>Home</li></a>
-        <a href="/#about"><li>About Us</li></a>
-        <a href="/patient_appointments"><li>Schedule an appointment</li></a>
-        <a href="/service-map"><li>Service Map</li></a>
-        <a><li>Contact Us</li></a>
-      </ul>
-    <% else %>
-      <ul class="menu-items">
-        <a href="/patient_samples"> <li>Patient Samples</li></a>
-        <a href="/agents"><li>Manage Agents</li></a>
-        <a href="/"><li>Manage Reports</li></a>
-      </ul>
-    <% end %>
-    <div class="user-menu" id="userMenu">
-      <% if current_user %>
-        <span class="user-name" id="userName">
-          <%= current_user.first_name %>
-        </span>
-        <div class="user-menu-dropdown" id="userMenuDropdown">
-          <%= link_to "Edit Profile", profile_path %>
-          <%= link_to "Log Out", destroy_user_session_path, method: :delete, data: { turbo_method: :delete } %>
-        </div>
+
+    <input type="checkbox" id="hamburger-checkbox" class="hamburger-checkbox">
+
+    <label for="hamburger-checkbox" class="hamburger-lines">
+      <span class="hamburger-line-1"></span>
+      <span class="hamburger-line-2"></span>
+      <span class="hamburger-line-3"></span>
+    </label>
+
+    <ul class="menu-items">
+      <% if current_user && current_user.has_role?(:patient) %>
+        <li><%= link_to "Home", root_path %></li>
+        <li><%= link_to "About Us", "/#about" %></li>
+        <li><%= link_to "Schedule Appointment", "/patient_appointments" %></li>
+        <li><%= link_to "Service Map", "/service-map" %></li>
+        <li><%= link_to "Contact Us", "#" %></li>
       <% else %>
-        <span class="user-name">
-          <%= link_to "Login", new_user_session_path %>
-        </span>
+        <li><%= link_to "Patient Samples", "/patient_samples" %></li>
+        <li><%= link_to "Manage Agents", "/agents" %></li>
+        <li><%= link_to "Manage Reports", "/" %></li>
       <% end %>
-    </div>
+
+      <% if current_user %>
+        <li class="user-name-dropdown">
+          <label for="dropdown-toggle" class="user-name"><%= current_user.first_name %></label>
+          <input type="checkbox" id="dropdown-toggle" class="dropdown-checkbox">
+          <ul class="dropdown-menu">
+            <li><%= link_to "Edit Profile", profile_path %></li>
+            <li><%= link_to "Log Out", destroy_user_session_path, method: :delete, data: { turbo_method: :delete } %></li>
+          </ul>
+        </li>
+      <% else %>
+        <li><%= link_to "Login", new_user_session_path %></li>
+      <% end %>
+    </ul>
   </div>
 </nav>
