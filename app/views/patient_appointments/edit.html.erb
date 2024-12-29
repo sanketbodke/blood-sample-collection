@@ -2,9 +2,7 @@
 
 
 <div class="container lab-page-container">
-  <%= link_to patient_appointments_path do %>
-    <%= image_tag "previous.png", alt: "Back", class: "lab-form-previous-icon"%>
-  <% end %>
+  <%= render 'shared/previous_button', path: patient_appointments_path %>
 
   <h1 class="lab-page-title">Edit Appointment</h1>
 

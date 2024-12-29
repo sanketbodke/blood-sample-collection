@@ -1,9 +1,7 @@
 <%= stylesheet_link_tag "create_agent", "data-turbo-track": "reload" %>
 
 <div class="container lab-page-container">
-  <%= link_to agents_path do %>
-    <%= image_tag "previous.png", alt: "Edit", class: "lab-form-previous-icon"%>
-  <% end %>
+  <%= render 'shared/previous_button', path: agents_path %>
   <h1 class="lab-page-title">Create Agent</h1>
   <%= form_with model: @agent,
                 url: agents_path,
